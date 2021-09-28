@@ -51,7 +51,16 @@ var Localizer *i18n.Localizer
 		return err
 	}
 
-	for _, m := range messageFile.Messages {
+	messagesMap := make(map[string]*i18n.Message, len(messageFile.Messages))
+	messageIDs := make([]string, 0, len(messageFile.Messages))
+	for i := range messageFile.Messages {
+		messageIDs = append(messageIDs, messageFile.Messages[i].ID)
+		messagesMap[messageFile.Messages[i].ID] = messageFile.Messages[i]
+	}
+	sort.Strings(messageIDs)
+
+	for _, messageID := range messageIDs {
+		m := messagesMap[messageID]
 		str := stringy.New(m.ID)
 		fnName := str.CamelCase()
 		reg := regexp.MustCompile(`\{\{\.(\S+)\}\}`)
