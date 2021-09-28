@@ -112,7 +112,7 @@ var Localizer *i18n.Localizer
 		}
 
 		if len(activeArgs) != 0 {
-			_, err = fmt.Fprintf(w, `func %s_Map(templateData map[string]interface{}, pluralCount interface{}) string {
+			_, err = fmt.Fprintf(w, `func %s_WithData(templateData, pluralCount interface{}) string {
 	messageID := "%s"
 	message, _ := Localizer.Localize(&i18n.LocalizeConfig{
 		MessageID:      messageID,
