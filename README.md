@@ -1,9 +1,9 @@
 # i18nc
 Generate type safe Go code from english locale content
 
-##Usage
+## Usage
 
-### Create i18c generate.go
+### Create i18nc generate.go
 
 ```
 # file i18nc/generate.go
@@ -40,3 +40,12 @@ func initLocalizer() *i18n.Localizer {
 	return nil
 }
 ```
+
+## Acknowledgements
+
+- [nicksnyder/go-i18n](https://github.com/nicksnyder/go-i18n)
+- [gobeam/stringy](https://github.com/gobeam/stringy)
+
+## License
+
+Released under the MIT License - see `LICENSE` for details.
